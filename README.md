@@ -3,6 +3,6 @@
 
 ## 安装环境
 
-npm install hexo
-npm install
-npm install hexo-deployer-git
+- npm install hexo
+- npm install
+- npm install hexo-deployer-git
