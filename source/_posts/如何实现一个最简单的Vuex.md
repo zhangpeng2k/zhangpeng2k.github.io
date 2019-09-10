@@ -188,6 +188,7 @@ export default {Store,install}
 ```
 
 ## 结尾
+因为这是一个mini版本的Vuex，非常简陋，仅仅实现了最基础的几个功能。
 
 [关键代码片段github地址](https://github.com/zhangpeng2k/my-vue-practice/blob/master/src/my-vuex.js)
 
