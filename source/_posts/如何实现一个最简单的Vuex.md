@@ -43,7 +43,7 @@ Vue.use(Vuex)
 let Vue; // 通过插件传递进来的Vue对象
 
 //创建Vuex类
-export default class Store{
+class Store{
 
   //构造函数
   constructor(options) {
@@ -79,7 +79,7 @@ export default class Store{
 
 ```
 //提供install方法
-Store.install = function(_Vue) {
+function install (_Vue) {
   Vue = _Vue;
 
   Vue.mixin({
@@ -89,7 +89,8 @@ Store.install = function(_Vue) {
       }
     }
   })
-};
+}
+export default {Store,install}
 
 ```
 
@@ -137,7 +138,7 @@ dispatch = (type, arg) => {
 ```
 let Vue;
 
-export default class Store {
+class Store {
 
   constructor(options) {
     this.state = new Vue({
@@ -171,7 +172,7 @@ export default class Store {
     })
   }
 }
-Store.install = function(_Vue) {
+function install (_Vue) {
   Vue = _Vue;
 
   Vue.mixin({
@@ -182,6 +183,7 @@ Store.install = function(_Vue) {
     }
   })
 }
+export default {Store,install}
 
 ```
 
