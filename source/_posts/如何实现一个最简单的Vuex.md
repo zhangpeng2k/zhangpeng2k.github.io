@@ -31,7 +31,7 @@ Vue.use(Vuex)
 
 > 安装 Vue.js 插件。如果插件是一个对象，必须提供 install 方法。如果插件是一个函数，它会被作为 install 方法。install 方法调用时，会将 Vue 作为参数传入。
 
-``Vue.use()``会执行传入对象的install方法，以此安装插件
+``Vue.use()``会执行传入对象的install方法(或者你直接向外暴露的install函数)，以此安装插件
 
 所以，想要我们的Vuex能够像官方的写法一致，除了提供类似的构造函数，还需要提供install方法。
 
