@@ -41,7 +41,7 @@ tags:
 
 ## 我选择了方法3：
 
-非常感谢dk大佬，他博客的[这篇文章](https://blog.dkvirus.top/ops/website/travis.html)帮助我了解travis并引导我完成了自动化集成。
+非常感谢dk大佬，他博客的[这篇文章](https://blog.dkvirus.top/ops/website/travis.html)帮助我了解travis CI并引导我完成了自动化集成。
 
 
 
