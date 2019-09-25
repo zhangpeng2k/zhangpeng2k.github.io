@@ -1,33 +1,33 @@
 ---
-title: 如何实现一个最简单的vue-router
+title: 如何实现一个最简单的Vue-Router
 date: 2019-08-29 17:05:52
 tags:
 ---
 
-## 如何实现一个最简单的vue-router
-要自己实现一个mini版的vue-router，当然要先了解他（vue-router）的原理。以及他都做了些什么？
+## 如何实现一个最简单的Vue-Router
+要自己实现一个mini版的Vue-Router，当然要先了解他（Vue-Router）的原理。以及他都做了些什么？
 
-### vue-router的实现原理
+### Vue-Router的实现原理
 
-先来看看vue-router官网对自己的介绍：
+先来看看Vue-Router官网对自己的介绍：
 
 > Vue Router 是 Vue.js 官方的路由管理器。**它和 Vue.js 的核心深度集成**，让构建单页面应用变得易如反掌。
 
 
-那么本文中的mini版vue-router会简单实现一些vue-router的基础功能：
-- 像真正的vue-router一样编写路由（仅基础实现）
-- 实现vue-router的hash模式url
+那么本文中的mini版Vue-Router会简单实现一些Vue-Router的基础功能：
+- 像真正的Vue-Router一样编写路由（仅基础实现）
+- 实现Vue-Router的hash模式url
 - 声明两个全局组件：router-link,router-view
 - 响应式切换路由视图
 
 
-#### 1. 提前扫盲，每次我们要引入vue-router都要使用以下代码来安装，
+#### 1. 提前扫盲，每次我们要引入Vue-Router都要使用以下代码来安装，
 
 ```
 import Vue from 'vue'
-import router from './router'
+import Router from 'vue-router'
 
-Vue.use(router)
+Vue.use(Router)
 
 ```
 官方文档的解释：
@@ -36,7 +36,7 @@ Vue.use(router)
 
 ``Vue.use()``会执行传入对象的install方法，以此安装插件
 
-所以，想要我们的vue-router能够像官方的写法一致，除了提供类似的构造函数，还需要提供install方法。
+所以，想要我们的Vue-Router能够像官方的写法一致，除了提供类似的构造函数，还需要提供install方法。
 
 #### 2. 编写VueRouter类，以及他的构造函数
 
@@ -182,14 +182,14 @@ onHashChange(){
   }
 ```
 
-#### 8. 像真正的vue-router一样使用！
+#### 8. 像真正的Vue-Router一样使用！
 
 **在router.js中**
 
 ```
 import Vue from 'vue'
 // import Router from 'vue-router'
-// 注释掉真正的vue-router，使用我们的mini版本QvQ
+// 注释掉真正的Vue-Router，使用我们的mini版本QvQ
 import Router from './my-vue-router'
 import Home from './views/Home.vue'
 import About from './views/About.vue'
