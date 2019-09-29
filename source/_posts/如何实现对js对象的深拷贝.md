@@ -4,8 +4,8 @@ date: 2019-09-11 18:45:56
 tags:
 ---
 
+## 待更新，这是个好题目
+
 ```
 JSON.parse(JSON.stringify(obj))
 ```
-
-## 待更新，这是个好题目
