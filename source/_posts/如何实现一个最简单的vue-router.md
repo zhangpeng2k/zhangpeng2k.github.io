@@ -7,6 +7,8 @@ tags:
 ## 如何实现一个最简单的Vue-Router
 要自己实现一个mini版的Vue-Router，当然要先了解他（Vue-Router）的原理。以及他都做了些什么？
 
+<!-- more -->
+
 ### Vue-Router的实现原理
 
 先来看看Vue-Router官网对自己的介绍：

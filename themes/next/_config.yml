@@ -220,6 +220,8 @@ auto_excerpt:
   enable: false
   length: 150
 
+read_more_btn: true
+
 # Post meta display settings
 post_meta:
   item_text: true
