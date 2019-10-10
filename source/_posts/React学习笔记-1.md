@@ -11,13 +11,13 @@ tags:
 - 无论是类组件还是函数组件，组件名称首字母必须大写！
 - render函数return的内容只能有一个根节点，需要一个包裹元素，
 比如使用数组：
-```jsx
+```javascript
 render(
   [<h1 />,<h2 />]
 )
 ```
   或者 Fragments:
-```html
+```javascript
 render(
   <React.Fragments>
     <h1 />
