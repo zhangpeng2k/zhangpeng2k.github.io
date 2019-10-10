@@ -6,6 +6,6 @@ tags:
 
 ## 待更新，这是个好题目
 
-```
+```javascript
 JSON.parse(JSON.stringify(obj))
 ```

@@ -20,7 +20,7 @@ tags:
 
 #### 1. 提前扫盲，每次我们要引入Vuex都要使用以下代码来安装，
 
-```
+```javascript
 import Vue from 'vue'
 import Vuex from 'vuex'
 
@@ -39,7 +39,7 @@ Vue.use(Vuex)
 
 新建一个my-vuex.js
 
-```
+```javascript
 let Vue; // 通过插件传递进来的Vue对象
 
 //创建Vuex类
@@ -77,7 +77,7 @@ class Store{
 
 关于[混入](https://cn.vuejs.org/v2/api/#mixins)
 
-```
+```javascript
 //提供install方法
 function install (_Vue) {
   Vue = _Vue;
@@ -98,7 +98,7 @@ export default {Store,install}
 #### 4. handleGetters方法
 
 
-```
+```javascript
 handleGetters(getters) {
   this.getters = {};
   Object.keys(getters).forEach(key => {
@@ -118,7 +118,7 @@ handleGetters(getters) {
 
 解析option中的router
 
-```
+```javascript
 commit = (type, arg) => {
   this.mutations[type](this.state, arg)
 }
@@ -135,7 +135,7 @@ dispatch = (type, arg) => {
 #### 6. 完整Store类结构一览
 
 
-```
+```javascript
 let Vue;
 
 class Store {

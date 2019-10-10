@@ -3,12 +3,12 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: zhangpeng2k blog
 subtitle:
 description:
 keywords:
-author: John Doe
-language: en
+author: zhangpeng2k
+language: zh-Hans
 timezone:
 
 # URL
@@ -17,6 +17,7 @@ url: http://yoursite.com
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
+#avatar:
 
 # Directory
 source_dir: source
@@ -73,7 +74,9 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+#theme: landscape
+theme: next
+
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html

@@ -23,7 +23,7 @@ tags:
 
 #### 1. 提前扫盲，每次我们要引入Vue-Router都要使用以下代码来安装，
 
-```
+```javascript
 import Vue from 'vue'
 import Router from 'vue-router'
 
@@ -42,7 +42,7 @@ Vue.use(Router)
 
 新建一个my-vue-router.js
 
-```
+```javascript
 let Vue; // 通过插件传递进来的Vue对象
 
 //创建VueRouter类
@@ -73,7 +73,7 @@ export default class VueRouter{
 
 关于[混入](https://cn.vuejs.org/v2/api/#mixins)
 
-```
+```javascript
 //提供install方法
 VueRouter.install = function(_Vue) {
   Vue = _Vue;
@@ -97,7 +97,7 @@ VueRouter.install = function(_Vue) {
 
 #### 4. 梳理VueRouter类的结构与逻辑
 
-```
+```javascript
 export default class VueRouter {
 
   constructor(options) {
@@ -123,7 +123,7 @@ export default class VueRouter {
 监听hashchange事件，每当跟在＃符号后面的URL部分（包括＃符号）改变，就会触发该事件。
 关于[hashchange](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/hashchange_event)
 
-```
+```javascript
 bindEvents(){
   window.addEventListener("hashchange", this.onHashChange.bind(this));
     window.addEventListener("load", this.onHashChange.bind(this));
@@ -141,7 +141,7 @@ onHashChange(){
 
 解析option中的router
 
-```
+```javascript
 // 解析routes选项
   createRouteMap() {
     this.$options.routes.forEach(item => {
@@ -154,7 +154,7 @@ onHashChange(){
 使用``Vue.component()``方法声明全局组件
 使用``render()``函数渲染router-link组件的dom
 
-```
+```javascript
 // 声明两个组件
   initComponent() {
     // Vue.component()
@@ -186,7 +186,7 @@ onHashChange(){
 
 **在router.js中**
 
-```
+```javascript
 import Vue from 'vue'
 // import Router from 'vue-router'
 // 注释掉真正的Vue-Router，使用我们的mini版本QvQ
@@ -222,7 +222,7 @@ export default new Router({
 
 **App.vue中**
 
-```
+```javascript
 <template>
   <div id="app">
     <div id="nav">
@@ -240,7 +240,7 @@ export default new Router({
 
 **在main.js中引入**
 
-```
+```javascript
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
