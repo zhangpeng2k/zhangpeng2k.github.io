@@ -1,7 +1,7 @@
 ---
 title: 使用github分支管理博客源码
 date: 2019-08-26 17:52:37
-tags:
+tags: [git]
 ---
 
 ## 使用gitHub分支管理博客源码
