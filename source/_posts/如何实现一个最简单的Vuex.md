@@ -1,7 +1,7 @@
 ---
 title: 如何实现一个简版的Vuex
 date: 2019-09-05 21:42:20
-tags:
+tags: [vue,vuex,源码]
 ---
 
 ## 如何实现一个最简单的Vuex

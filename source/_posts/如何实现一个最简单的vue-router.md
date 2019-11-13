@@ -1,7 +1,7 @@
 ---
 title: 如何实现一个最简单的Vue-Router
 date: 2019-08-29 17:05:52
-tags:
+tags:[vue,vue-router,源码]
 ---
 
 ## 如何实现一个最简单的Vue-Router

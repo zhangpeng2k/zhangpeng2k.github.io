@@ -1,7 +1,7 @@
 ---
 title: 记npm在mac环境下遇到的一个坑
 date: 2019-10-22 13:36:23
-tags:
+tags:[mac,npm]
 ---
 
 我在github上新建了个[react练手项目](https://github.com/zhangpeng2k/my-react-practice)

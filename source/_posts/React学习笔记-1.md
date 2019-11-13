@@ -1,7 +1,7 @@
 ---
 title: React学习笔记-1
 date: 2019-10-09 17:55:04
-tags:
+tags:[react]
 ---
 
 # 学习笔记-1
