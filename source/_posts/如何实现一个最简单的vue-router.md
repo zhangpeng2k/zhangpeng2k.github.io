@@ -5,6 +5,7 @@ tags:[vue,vue-router,源码]
 ---
 
 ## 如何实现一个最简单的Vue-Router
+
 要自己实现一个mini版的Vue-Router，当然要先了解他（Vue-Router）的原理。以及他都做了些什么？
 
 <!-- more -->
@@ -15,13 +16,12 @@ tags:[vue,vue-router,源码]
 
 > Vue Router 是 Vue.js 官方的路由管理器。**它和 Vue.js 的核心深度集成**，让构建单页面应用变得易如反掌。
 
-
 那么本文中的mini版Vue-Router会简单实现一些Vue-Router的基础功能：
+
 - 像真正的Vue-Router一样编写路由（仅基础实现）
 - 实现Vue-Router的hash模式url
 - 声明两个全局组件：router-link,router-view
 - 响应式切换路由视图
-
 
 #### 1. 提前扫盲，每次我们要引入Vue-Router都要使用以下代码来安装，
 
@@ -32,6 +32,7 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 ```
+
 官方文档的解释：
 
 > 安装 Vue.js 插件。如果插件是一个对象，必须提供 install 方法。如果插件是一个函数，它会被作为 install 方法。install 方法调用时，会将 Vue 作为参数传入。
@@ -68,7 +69,6 @@ export default class VueRouter{
 
 ```
 
-
 #### 3. 编写VueRouter的install静态方法
 
 使用``Vue.mixin()``将router对象绑定到Vue的原型链上
@@ -96,7 +96,6 @@ VueRouter.install = function(_Vue) {
 
 ```
 
-
 #### 4. 梳理VueRouter类的结构与逻辑
 
 ```javascript
@@ -108,7 +107,7 @@ export default class VueRouter {
 
   init(){
     //执行VueRouter的install方法后在这里初始化router
-    
+
     // 1.事件监听
     this.bindEvents();
     // 2.创建路由映射
@@ -120,6 +119,7 @@ export default class VueRouter {
 }
 
 ```
+
 #### 5. bindEvents方法
 
 监听hashchange事件，每当跟在＃符号后面的URL部分（包括＃符号）改变，就会触发该事件。
@@ -138,7 +138,6 @@ onHashChange(){
 
 ```
 
-
 #### 6. createRouteMap方法
 
 解析option中的router
@@ -151,6 +150,7 @@ onHashChange(){
     });
   }
 ```
+
 #### 7. initComponent方法（声明组件）
 
 使用``Vue.component()``方法声明全局组件
@@ -169,7 +169,7 @@ onHashChange(){
         // 3. h(tag, data, children)
         // return <a href={this.to}>{this.$slots.default}</a>
         const vdom = h('a', {attrs: {href: '#'+this.to}}, [this.$slots.default]);
-        console.log(vdom);        
+        console.log(vdom);
         return vdom;
       },
     });
@@ -184,9 +184,9 @@ onHashChange(){
   }
 ```
 
-#### 8. 像真正的Vue-Router一样使用！
+#### 8. 像真正的Vue-Router一样使用
 
-**在router.js中**
+在router.js中
 
 ```javascript
 import Vue from 'vue'
@@ -222,7 +222,7 @@ export default new Router({
 })
 ```
 
-**App.vue中**
+App.vue中
 
 ```javascript
 <template>
@@ -240,7 +240,7 @@ export default new Router({
 </style>
 ```
 
-**在main.js中引入**
+在main.js中引入
 
 ```javascript
 import Vue from 'vue'
@@ -256,10 +256,8 @@ new Vue({
 
 ### OK! 现在你应该可以在项目中看到效果了
 
-
 ## 小结
 因为这是一个mini版本，非常简陋，仅仅实现了最基础的几个功能。
 
 [关键代码片段github地址](https://github.com/zhangpeng2k/my-vue-practice/blob/master/src/my-vue-router.js)
-
 

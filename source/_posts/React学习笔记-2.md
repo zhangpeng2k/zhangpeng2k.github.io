@@ -4,10 +4,9 @@ date: 2019-10-13 10:59:59
 tags: [react]
 ---
 
-# 学习笔记-2
 
+## 关于`this`的指向问题
 
-### 关于`this`的指向问题，
 - 函数内的`this`取决于函数在什么地方被调用
 
 ```javascript
@@ -33,4 +32,4 @@ export default class TodoList extends Component {
     }
     ...
 }
-``` 
+```

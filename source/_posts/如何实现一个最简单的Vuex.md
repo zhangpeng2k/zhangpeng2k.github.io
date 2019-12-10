@@ -5,6 +5,7 @@ tags: [vue,vuex,源码]
 ---
 
 ## 如何实现一个最简单的Vuex
+
 要自己实现一个mini版的Vuex，当然要先了解他（Vuex）的原理。以及他都做了些什么？
 
 <!-- more -->
@@ -16,9 +17,9 @@ tags: [vue,vuex,源码]
 > Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。
 
 那么本文中的mini版Vuex会简单实现一些Vuex的基础功能：
+
 - 像真正的Vuex一样编写和引用
 - 实现Vuex的state,getter,mutations,actions（仅基础实现）
-
 
 #### 1. 提前扫盲，每次我们要引入Vuex都要使用以下代码来安装，
 
@@ -29,6 +30,7 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 ```
+
 官方文档的解释：
 
 > 安装 Vue.js 插件。如果插件是一个对象，必须提供 install 方法。如果插件是一个函数，它会被作为 install 方法。install 方法调用时，会将 Vue 作为参数传入。
@@ -49,9 +51,9 @@ class Store{
 
   //构造函数
   constructor(options) {
-    
+
     // 将传入的options挂载到Store类上
-    
+
     //使用一个Vue对象保存state中的值
     this.state = new Vue({
         data: options.state
@@ -71,7 +73,6 @@ class Store{
 }
 
 ```
-
 
 #### 3. 编写Vuex的install静态方法
 
@@ -96,9 +97,7 @@ export default {Store,install}
 
 ```
 
-
 #### 4. handleGetters方法
-
 
 ```javascript
 handleGetters(getters) {
@@ -114,7 +113,6 @@ handleGetters(getters) {
 
 
 ```
-
 
 #### 5. commit,dispatch方法
 
@@ -134,8 +132,8 @@ dispatch = (type, arg) => {
   }, arg)
 }
 ```
-#### 6. 完整Store类结构一览
 
+#### 6. 完整Store类结构一览
 
 ```javascript
 let Vue;
@@ -190,10 +188,7 @@ export default {Store,install}
 ```
 
 ## 结尾
+
 因为这是一个mini版本的Vuex，非常简陋，仅仅实现了最基础的几个功能。
 
 [关键代码片段github地址](https://github.com/zhangpeng2k/my-vue-practice/blob/master/src/my-vuex.js)
-
-
-
-

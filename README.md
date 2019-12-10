@@ -1,6 +1,5 @@
 # zhangpeng2k.github.io
 
-
 ## 安装环境
 
 - npm install hexo
@@ -15,7 +14,7 @@
 
 ## Markdown语法参考
 
-```
+```markdown
 # 一级标题
 ## 二级标题
 ##### 五级标题

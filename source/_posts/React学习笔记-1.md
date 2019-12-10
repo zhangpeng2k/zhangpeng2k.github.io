@@ -4,7 +4,6 @@ date: 2019-10-09 17:55:04
 tags:[react]
 ---
 
-# 学习笔记-1
 
 ## 组件基础
 
@@ -51,4 +50,3 @@ render(
 - [v16.0之前的生命周期](https://upload-images.jianshu.io/upload_images/5287253-bd799f87556b5ecc.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200/format/webp)
 
 - [v16.4的生命周期](https://upload-images.jianshu.io/upload_images/5287253-82f6af8e0cc9012b.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200/format/jpg)
-
