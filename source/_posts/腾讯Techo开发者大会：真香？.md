@@ -7,6 +7,7 @@ tags: [Techo,腾讯云,腾讯,开发者大会]
 ## 关键词：大佬演讲，新技术展望，动手实验室
 
 年轻人的第一次开发者大会
+![Techo](http://images.zhangpeng2k.com//img/IMG_0673.JPG)
 
 <!-- more -->
 
@@ -21,6 +22,8 @@ tags: [Techo,腾讯云,腾讯,开发者大会]
 - Eric Chiang Netflix Engineering Manager（流媒体服务商）
 - Rob Bissett Google Cloud - Product Manager （404网站代表）
 
+![Apache老帅哥](http://images.zhangpeng2k.com//img/IMG_0685.JPG)
+
 国内大佬
 
 - 邱跃鹏 腾讯副总裁、腾讯云总裁（开幕式虽然只讲了10分钟，但不得不说总裁还是很有水平的）
@@ -28,16 +31,20 @@ tags: [Techo,腾讯云,腾讯,开发者大会]
 - 刘杉 腾讯多媒体实验室总经理、杰出科学家（美女刀客塔，参与新视频编码协议定义，希望能早点发布更好的编码协议换掉H.264）
 - Michael Zhu 美团点评技术副总裁（知名饿势力头头）
 
+![美女刀客塔](http://images.zhangpeng2k.com//img/IMG_0681.JPG)
+
 ## 新技术
 
 体验了一下时下很火的一些新技术，黑科技
 
 - Intel展台 AR眼镜
   这很coooool! 它在右眼的位置配置了一个微型显示屏（小拇指指甲盖大小），用光折射的原理，以及凸镜，让这一部分的设备并不显得臃肿，再加上本身人眼是可以自己选择左右眼变焦的，所以显示屏并不会遮挡视野...扯远了
+  ![AR眼镜，小哥也很帅](http://images.zhangpeng2k.com//img/IMG_0670.JPG)
 
 - 腾讯云 云游戏
   展台只有龙之谷... 试玩了一下，延迟吹得挺牛，50ms左右的输入延迟，基本告别FPS了，玩玩云顶之弈应该没问题？和别的云游戏并无区别...展台写的GPU独立容器啥的，搞的我以为是纯GPU服务器呢...实际上是windows虚拟机，桌面上只有一个WeGame.. 2333
   但总体体验下来，还不错！是一种当下较为实用的云游戏解决方案，只是目前还未推广到Gamers手里。
+  ![云游戏展台](http://images.zhangpeng2k.com//img/IMG_0671.JPG)
 
 ## 动手实验室
 
@@ -75,5 +82,9 @@ tags: [Techo,腾讯云,腾讯,开发者大会]
 连着两天的抽奖抽奖都没抽到我，柠檬🍋了
 
 抓了一兜子企鹅的公仔，5件T恤。白嫖使我快乐23333
+![公仔](http://images.zhangpeng2k.com//img/IMG_0761.JPG)
+
+送了几个贴纸，贴笔记本上了
+![送了几个贴纸，贴笔记本上了](http://images.zhangpeng2k.com//img/IMG_0851.JPG)
 
 门票免费，这点挺好的，第一次办没有经验。能理解，希望明年Techo能整点新活儿出来好吧？
