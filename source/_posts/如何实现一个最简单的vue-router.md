@@ -23,7 +23,7 @@ tags: [vue,vue-router,源码]
 - 声明两个全局组件：router-link,router-view
 - 响应式切换路由视图
 
-#### 1. 提前扫盲，每次我们要引入Vue-Router都要使用以下代码来安装，
+#### 1. 提前扫盲，每次我们要引入Vue-Router都要使用以下代码来安装
 
 ```javascript
 import Vue from 'vue'
@@ -257,7 +257,7 @@ new Vue({
 ### OK! 现在你应该可以在项目中看到效果了
 
 ## 小结
+
 因为这是一个mini版本，非常简陋，仅仅实现了最基础的几个功能。
 
 [关键代码片段github地址](https://github.com/zhangpeng2k/my-vue-practice/blob/master/src/my-vue-router.js)
-

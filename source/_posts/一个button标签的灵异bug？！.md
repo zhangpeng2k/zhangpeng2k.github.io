@@ -4,7 +4,7 @@ date: 2019-09-26 16:59:36
 tags: [bug,html,javascript]
 ---
 
-## 副标题：我是如何定位一个未知的bug的？
+## 副标题：我是如何定位一个未知的bug的
 
 假设你是一个开开心心的程序员，正在快乐写代码。
 
@@ -86,7 +86,7 @@ function addValue(){
 - UI层（button标签）
 - 逻辑层（addValue函数）
 
-### 可以分离出如下代码：
+### 可以分离出如下代码
 
 ```javascript
 var list = [];
