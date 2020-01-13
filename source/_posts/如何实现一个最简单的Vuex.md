@@ -1,7 +1,7 @@
 ---
 title: 如何实现一个简版的Vuex
 date: 2019-09-05 21:42:20
-tags: [vue,vuex,源码]
+tags: [Vue,Vuex,源码]
 ---
 
 ## 如何实现一个最简单的Vuex
@@ -21,7 +21,7 @@ tags: [vue,vuex,源码]
 - 像真正的Vuex一样编写和引用
 - 实现Vuex的state,getter,mutations,actions（仅基础实现）
 
-#### 1. 提前扫盲，每次我们要引入Vuex都要使用以下代码来安装，
+#### 1. 提前扫盲，每次我们要引入Vuex都要使用以下代码来安装
 
 ```javascript
 import Vue from 'vue'
@@ -153,7 +153,7 @@ class Store {
     this.mutations[type](this.state, arg)
   }
 
-  dispatch = (type, arg) => { 
+  dispatch = (type, arg) => {
     this.actions[type]({
       commit: this.commit,
       state: this.state,
