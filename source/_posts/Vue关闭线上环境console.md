@@ -9,7 +9,7 @@ tags: [Vue,Webpack,部署]
 在之前，我通过这样一行代码实现...
 
 ```JavaScript
-console.log=()=>{}
+console.log = () => {}
 ```
 
 虽然够用，但是不够优雅，难以维护。
