@@ -14,7 +14,7 @@ tags: [Vue,Vue-Router,源码]
 
 先来看看Vue-Router官网对自己的介绍：
 
-> Vue Router 是 Vue.js 官方的路由管理器。**它和 Vue.js 的核心深度集成**，让构建单页面应用变得易如反掌。
+> Vue-Router 是 Vue.js 官方的路由管理器。**它和 Vue.js 的核心深度集成**，让构建单页面应用变得易如反掌。
 
 那么本文中的mini版Vue-Router会简单实现一些Vue-Router的基础功能：
 
