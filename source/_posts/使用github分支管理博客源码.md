@@ -1,12 +1,12 @@
 ---
-title: 使用github分支管理博客源码
+title: 使用GitHub分支管理博客源码
 date: 2019-08-26 17:52:37
-tags: [git]
+tags: [Git,GitHub,Hexo,Travis CI,部署]
 ---
 
-## 使用gitHub分支管理博客源码
+## 使用GitHub分支管理博客源码
 
-使用hexo搭建博客后，突然也苦恼于该如何保存博客源码，让我能方便的在多个设备搭建环境写博客？
+使用Hexo搭建博客后，突然也苦恼于该如何保存博客源码，让我能方便的在多个设备搭建环境写博客？
 
 在知乎上看到了[一个相关的问题](https://www.zhihu.com/question/21193762) ，里面正好有解答。
 
@@ -16,7 +16,7 @@ tags: [git]
 
 ### 方法1
 
-说明：使用gitHub分支来管理博客源码
+说明：使用GitHub分支来管理博客源码
 优点：
 
 - 简单方便，新建分支后只需要正常提交即可，有另一个分支保存代码，每次切换环境只需要clone下来
@@ -28,7 +28,7 @@ tags: [git]
 说明：使用 两个GitHub Repo + 持续集成
 优点：
 
-- 安全，可以把源码放在gitee或coding私有仓库，提交到源码分支后，持续集成会自动执行``hexo g``命令并且把public文件夹下的代码推送到另一个仓库
+- 安全，可以把源码放在Gitee或Coding私有仓库，提交到源码分支后，持续集成会自动执行``hexo g``命令并且把public文件夹下的代码推送到另一个仓库
 
 缺点：
 
@@ -36,16 +36,16 @@ tags: [git]
 
 ## 方法3
 
-说明：使用gitHub分支 + 持续集成
+说明：使用GitHub分支 + 持续集成
 优点：
 
-- 提交到源码分支后，持续集成会自动执行``hexo g``命令并且把public文件夹下的代码推送到master(githubPage)分支，一目了然。
+- 提交到源码分支后，持续集成会自动执行``hexo g``命令并且把public文件夹下的代码推送到master(GitHubPage)分支，一目了然。
 - 使用其他电脑也一样可以推送到master分支，且提交记录也会更准确。
 缺点（准确的说是我的缺点）：
 - 我不了解持续集成，怎么办？
 
 ## 我选择了方法3
 
-非常感谢dk大佬，他博客的[这篇文章](https://blog.dkvirus.top/ops/website/travis.html)帮助我了解travis CI并引导我完成了自动化集成。
+非常感谢dk大佬，他博客的[这篇文章](https://blog.dkvirus.top/ops/website/travis.html)帮助我了解Travis CI并引导我完成了自动化集成。
 
 > 用CI也太爽了，以后所有项目不再手动部署了！

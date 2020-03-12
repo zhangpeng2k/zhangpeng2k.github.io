@@ -1,7 +1,7 @@
 ---
 title: 解决npm权限问题
 date: 2020-3-5 15:36:23
-tags: [mac,npm,sudo]
+tags: [Mac,NPM,sudo]
 ---
 
 我在github上新建了个[react练手项目](https://github.com/zhangpeng2k/my-react-practice)

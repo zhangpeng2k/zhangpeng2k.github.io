@@ -1,8 +1,10 @@
 ---
-title: 一个button标签的灵异bug？！
+title: 一个Button标签的灵异bug？！
 date: 2019-09-26 16:59:36
-tags: [bug,html,javascript]
+tags: [Bug,HTML,JavaScript]
 ---
+
+# 一个Button标签的灵异bug？！
 
 ## 副标题：我是如何定位一个未知的bug的
 
