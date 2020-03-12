@@ -17,6 +17,7 @@ tags: [Bug,HTML,JavaScript]
 这本是很简单的逻辑，点击按钮，触发click事件：给某个数组的尾部添加一个值。
 
 ```javascript
+
 //html
 <button onclick='addValue()'>点击添加</button>
 
