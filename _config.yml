@@ -84,7 +84,7 @@ deploy:
   type: git
   repository: 
     github: git@github.com:zhangpeng2k/zhangpeng2k.github.io.git
-    coding: e.coding.net:zhangpeng2k/zhangpeng2k.coding.me.git
+    coding: git@e.coding.net:zhangpeng2k/zhangpeng2k.coding.me.git
     
   branch: master
   

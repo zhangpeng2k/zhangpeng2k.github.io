@@ -36,4 +36,4 @@ env:
   global:
     # 定义往哪个仓库推送代码，注意事项见下面
     - GH_REF: github.com/zhangpeng2k/zhangpeng2k.github.io.git
-    - GH_REF2: e.coding.net/zhangpeng2k/zhangpeng2k.coding.me.git
+    - GH_REF2: git@e.coding.net:zhangpeng2k/zhangpeng2k.coding.me.git
