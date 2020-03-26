@@ -28,7 +28,7 @@ after_script:
   - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
 
   # coding
-  - git push --force --quiet "https://zhangpeng2k:${CODING_TOKEN}@${CODING_REF}" master:master
+  - git push --force --quiet "https://zhangpeng2k:${CODING_TOKEN2}@${CODING_REF}" master:master
   
 # E: Build LifeCycle
 
