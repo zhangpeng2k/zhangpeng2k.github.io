@@ -82,6 +82,9 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repository: git@github.com:zhangpeng2k/zhangpeng2k.github.io.git
+  repository: 
+    github: git@github.com:zhangpeng2k/zhangpeng2k.github.io.git
+    coding: e.coding.net:zhangpeng2k/zhangpeng2k.coding.me.git
+    
   branch: master
   

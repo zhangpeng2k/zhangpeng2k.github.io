@@ -24,6 +24,8 @@ after_script:
   # GH_TOKEN 为你的 github 允许 travis 访问生成的凭证
   # GH_REF 告诉 travis 往哪个仓库推送代码，具体值下面配置
   - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
+  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF2}" master:master
+  
 # E: Build LifeCycle
 
 branches:
@@ -34,4 +36,4 @@ env:
   global:
     # 定义往哪个仓库推送代码，注意事项见下面
     - GH_REF: github.com/zhangpeng2k/zhangpeng2k.github.io.git
-    - GH_REF: e.coding.net/zhangpeng2k/zhangpeng2k.coding.me.git
+    - GH_REF2: e.coding.net/zhangpeng2k/zhangpeng2k.coding.me.git
