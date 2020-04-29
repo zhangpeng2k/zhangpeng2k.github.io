@@ -15,6 +15,7 @@ script:
 after_script:
   # 找到静态资源
   - cd ./public
+  - cat index.html
   - git init
   # user.name 和 user.email 让 travis 能登录你的 github
   - git config user.name "zhangpeng2k"
