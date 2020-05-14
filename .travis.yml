@@ -31,7 +31,7 @@ after_script:
 
   - git tag v0.0.$TRAVIS_BUILD_NUMBER -a -m "Auto Taged By TravisCI With Build $TRAVIS_BUILD_NUMBER"
   # coding
-  - git push --force --quiet "https://zhangpeng2k:${CODING_TOKEN2}@${CODING_REF2}" master:master
+  - git push --quiet "https://${CODING_TOKEN2}@${CODING_REF2}" master:master
   
 # E: Build LifeCycle
 
