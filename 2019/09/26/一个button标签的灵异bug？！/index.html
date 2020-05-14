@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Bug,HTML,JavaScript,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="一个Button标签的灵异bug？！副标题：我是如何定位一个未知的bug的假设你是一个开开心心的程序员，正在快乐写代码。 突然，你发现了一个bug：点击一个按钮时，页面却意外刷新了。">
+<meta name="keywords" content="Bug,HTML,JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一个Button标签的灵异bug？！">
+<meta property="og:url" content="http://zhangpeng2k.github.io/2019/09/26/一个button标签的灵异bug？！/index.html">
+<meta property="og:site_name" content="zhangpeng2k Blog">
+<meta property="og:description" content="一个Button标签的灵异bug？！副标题：我是如何定位一个未知的bug的假设你是一个开开心心的程序员，正在快乐写代码。 突然，你发现了一个bug：点击一个按钮时，页面却意外刷新了。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-05-14T07:17:08.724Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="一个Button标签的灵异bug？！">
+<meta name="twitter:description" content="一个Button标签的灵异bug？！副标题：我是如何定位一个未知的bug的假设你是一个开开心心的程序员，正在快乐写代码。 突然，你发现了一个bug：点击一个按钮时，页面却意外刷新了。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://zhangpeng2k.github.io/2019/09/26/一个button标签的灵异bug？！/">
+
+
+
+
+
+  <title>一个Button标签的灵异bug？！ | zhangpeng2k Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">zhangpeng2k Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-link">
+          <a href="/link" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
+            
+            友链
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhangpeng2k.github.io/2019/09/26/一个button标签的灵异bug？！/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhangpeng2k">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhangpeng2k Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">一个Button标签的灵异bug？！</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-26T16:59:36+00:00">
+                2019-09-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="一个Button标签的灵异bug？！"><a href="#一个Button标签的灵异bug？！" class="headerlink" title="一个Button标签的灵异bug？！"></a>一个Button标签的灵异bug？！</h1><h2 id="副标题：我是如何定位一个未知的bug的"><a href="#副标题：我是如何定位一个未知的bug的" class="headerlink" title="副标题：我是如何定位一个未知的bug的"></a>副标题：我是如何定位一个未知的bug的</h2><p>假设你是一个开开心心的程序员，正在快乐写代码。</p>
+<p>突然，你发现了一个bug：点击一个按钮时，页面却意外刷新了。</p>
+<a id="more"></a>
+
+<p>这本是很简单的逻辑，点击按钮，触发click事件：给某个数组的尾部添加一个值。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//html</span></span><br><span class="line">&lt;button onclick=<span class="string">'addValue()'</span>&gt;点击添加&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/javascript</span></span><br><span class="line"><span class="regexp">var list = [];</span></span><br><span class="line"><span class="regexp">function addValue()&#123;</span></span><br><span class="line"><span class="regexp">  list.push('哇哦')</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>做过无数类似逻辑，处理过无数bug的你，自信一笑。</p>
+<p>“呵呵” 你这样想着：不过一个小bug而已，我来看看是哪里的错误。</p>
+<p>“点击事件里加上console打印改变前后的数组”</p>
+<p>你在浏览器里按下F12，打开开发者控制台，点到netWork，刷新页面。 一切操作仿佛做过千百遍，一气呵成。</p>
+<p>“嘿？真邪门了！”你一遍遍的点着button，看见控制台一次次闪过那个数组，页面却在下一个瞬间刷新。</p>
+<p>终于，在点击上百次后，你仍然没能从其中找到任何能帮助你定位bug的信息。</p>
+<p>让我们再来一遍吧！</p>
+<h2 id="1-检查语法或者变量错误"><a href="#1-检查语法或者变量错误" class="headerlink" title="1. 检查语法或者变量错误"></a>1. 检查语法或者变量错误</h2><p>无论是多么有经验的程序员，总是会犯一些小错误的。<br>如果在一顿调试后发现是语法问题，或者是少写了分号，这种小错误。想想也是十分尴尬的。<br>…<br>在一顿寻找后，并没有发现语法错误。<br>成功排除掉语法错误。</p>
+<h2 id="2-缩小问题范围"><a href="#2-缩小问题范围" class="headerlink" title="2. 缩小问题范围"></a>2. 缩小问题范围</h2><p>有着以往解决bug的经验，你知道定位bug首先就要把问题范围缩小。</p>
+<p>“首先…试着排除是其他代码导致的问题吧。” 最难解决的就是两个不同的代码块之间的‘化学反应’了</p>
+<p>比如事件冒泡，有时无意间创作出的bug最难定位了</p>
+<p>你把无关的代码通通注释，这个button标签显得如此孤单：“再来试试！”</p>
+<p>点击button，控制台输出，下一瞬刷新</p>
+<p>“靠…不过也至少排除了，不是别的代码导致的问题”</p>
+<h2 id="3-沙盒Demo调试法"><a href="#3-沙盒Demo调试法" class="headerlink" title="3. 沙盒Demo调试法"></a>3. 沙盒Demo调试法</h2><p>在项目代码里注释，总有一些高耦合的代码没办法注释。</p>
+<p>最好的办法是将想要测试的部分抽离出来。<br>现在已经确定了，有问题的代码就在这里。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//html</span></span><br><span class="line">&lt;button onclick=<span class="string">'addValue()'</span>&gt;点击添加&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/javascript</span></span><br><span class="line"><span class="regexp">var list = [];</span></span><br><span class="line"><span class="regexp">function addValue()&#123;</span></span><br><span class="line"><span class="regexp">  list.push('哇哦')</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>我们可以将这些代码分开测试：</p>
+<ul>
+<li>UI层（button标签）</li>
+<li>逻辑层（addValue函数）</li>
+</ul>
+<h3 id="可以分离出如下代码"><a href="#可以分离出如下代码" class="headerlink" title="可以分离出如下代码"></a>可以分离出如下代码</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> list = [];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addValue</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  list.push(<span class="string">'哇哦'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>以及</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;button&gt;test&lt;<span class="regexp">/button&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>经过万全的测试，发现addValue函数并没有问题。<br>而button标签抽离掉业务代码后却还是会导致页面刷新。</p>
+<p>新机词挖一此莫禾多此！（真相只有一个）</p>
+<p>真正导致bug的凶手…就是这个button标签！<br>表面上看上去毫无问题，如此简洁的代码，我的vscode都没能识别出语法错误！<br>但，我无法识别出的问题，有人能够识别出！他就是<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button" target="_blank" rel="noopener">MDN文档</a>!</p>
+<p>文档中的demo如下</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;button <span class="class"><span class="keyword">class</span></span>=<span class="string">"favorite styled"</span> type=<span class="string">"button"</span>&gt;</span><br><span class="line">    Add to favorites</span><br><span class="line">&lt;<span class="regexp">/button&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>对比之下，button多了两个属性 class,type 毫无疑问！<br>问题就出在…class上！（吃错药</p>
+<p>咳咳，当然是type了，而vscode并没能识别出语法错误，令我很疑惑。<br>查了一下相关文档后发现，type确实不是必填属性：</p>
+<blockquote>
+<p>请始终为按钮规定 type 属性。Internet Explorer 的默认类型是 “button”，而其他浏览器中（包括 W3C 规范）的默认值是 “submit”。</p>
+</blockquote>
+<p>打扰了，怪不得会刷新页面。原来是触发了表单提交行为…</p>
+<blockquote>
+<p>假酒害人<em>(:з」∠)</em></p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Bug/" rel="tag"># Bug</a>
+          
+            <a href="/tags/HTML/" rel="tag"># HTML</a>
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/11/如何实现对js对象的深拷贝/" rel="next" title="如何实现对js对象的深拷贝?">
+                <i class="fa fa-chevron-left"></i> 如何实现对js对象的深拷贝?
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/09/React学习笔记-1/" rel="prev" title="React学习笔记-1">
+                React学习笔记-1 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">zhangpeng2k</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一个Button标签的灵异bug？！"><span class="nav-number">1.</span> <span class="nav-text">一个Button标签的灵异bug？！</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#副标题：我是如何定位一个未知的bug的"><span class="nav-number">1.1.</span> <span class="nav-text">副标题：我是如何定位一个未知的bug的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-检查语法或者变量错误"><span class="nav-number">1.2.</span> <span class="nav-text">1. 检查语法或者变量错误</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-缩小问题范围"><span class="nav-number">1.3.</span> <span class="nav-text">2. 缩小问题范围</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-沙盒Demo调试法"><span class="nav-number">1.4.</span> <span class="nav-text">3. 沙盒Demo调试法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#可以分离出如下代码"><span class="nav-number">1.4.1.</span> <span class="nav-text">可以分离出如下代码</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhangpeng2k</span>
+
+  
+</div>
+
+
+  <div class="powered-by">
+    <i class="fa fa-user-md"></i>
+    <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
