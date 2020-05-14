@@ -31,7 +31,7 @@ after_script:
 
   - git tag v0.0.$TRAVIS_BUILD_NUMBER -a -m "Auto Taged By TravisCI With Build $TRAVIS_BUILD_NUMBER"
   # coding
-  - git push --quiet "https://${CODING_TOKEN2}@${CODING_REF2}" master:master
+  - git push --force --quiet "https://${CODING_TOKEN2}@${CODING_REF}" master:master
   
 # E: Build LifeCycle
 
@@ -43,5 +43,6 @@ env:
   global:
     # 定义往哪个仓库推送代码，注意事项见下面
     - GH_REF: github.com/zhangpeng2k/zhangpeng2k.github.io.git
-    - CODING_REF: e.coding.net/zhangpeng2k/zhangpeng2k.coding.me.git
+    - CODING_REF: e.coding.net/zhangpeng2k/zhangpeng2k.coding.me/zhangpeng2k.coding.me.git
     - CODING_REF2: git.coding.net/zhangpeng2k/zhangpeng2k.coding.me.git
+    
