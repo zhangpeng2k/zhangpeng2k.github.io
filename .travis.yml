@@ -29,9 +29,19 @@ after_script:
   # github
   - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
 
+  # coding
+  - git push --force --quiet "https://zhangpeng2k:${CODING_TOKEN2}@${CODING_REF}" master:master 
+
   - git tag v0.0.$TRAVIS_BUILD_NUMBER -a -m "Auto Taged By TravisCI With Build $TRAVIS_BUILD_NUMBER"
+
+
+  # github
+  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master --tags
+
   # coding
   - git push --force --quiet "https://zhangpeng2k:${CODING_TOKEN2}@${CODING_REF}" master:master --tags
+
+  
   
 # E: Build LifeCycle
 
