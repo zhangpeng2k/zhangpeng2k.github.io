@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Vue,源码,Vue-Router,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="如何实现一个最简单的Vue-Router要自己实现一个mini版的Vue-Router，当然要先了解他（Vue-Router）的原理。以及他都做了些什么？">
+<meta name="keywords" content="Vue,源码,Vue-Router">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何实现一个最简单的Vue-Router">
+<meta property="og:url" content="http://zhangpeng2k.github.io/2019/08/29/如何实现一个最简单的vue-router/index.html">
+<meta property="og:site_name" content="zhangpeng2k Blog">
+<meta property="og:description" content="如何实现一个最简单的Vue-Router要自己实现一个mini版的Vue-Router，当然要先了解他（Vue-Router）的原理。以及他都做了些什么？">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-09-01T03:31:56.960Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="如何实现一个最简单的Vue-Router">
+<meta name="twitter:description" content="如何实现一个最简单的Vue-Router要自己实现一个mini版的Vue-Router，当然要先了解他（Vue-Router）的原理。以及他都做了些什么？">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://zhangpeng2k.github.io/2019/08/29/如何实现一个最简单的vue-router/">
+
+
+
+
+
+  <title>如何实现一个最简单的Vue-Router | zhangpeng2k Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">zhangpeng2k Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-link">
+          <a href="/link" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
+            
+            友链
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zhangpeng2k.github.io/2019/08/29/如何实现一个最简单的vue-router/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhangpeng2k">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhangpeng2k Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">如何实现一个最简单的Vue-Router</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-29T17:05:52+00:00">
+                2019-08-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="如何实现一个最简单的Vue-Router"><a href="#如何实现一个最简单的Vue-Router" class="headerlink" title="如何实现一个最简单的Vue-Router"></a>如何实现一个最简单的Vue-Router</h2><p>要自己实现一个mini版的Vue-Router，当然要先了解他（Vue-Router）的原理。以及他都做了些什么？</p>
+<a id="more"></a>
+
+<h3 id="Vue-Router的实现原理"><a href="#Vue-Router的实现原理" class="headerlink" title="Vue-Router的实现原理"></a>Vue-Router的实现原理</h3><p>先来看看Vue-Router官网对自己的介绍：</p>
+<blockquote>
+<p>Vue-Router 是 Vue.js 官方的路由管理器。<strong>它和 Vue.js 的核心深度集成</strong>，让构建单页面应用变得易如反掌。</p>
+</blockquote>
+<p>那么本文中的mini版Vue-Router会简单实现一些Vue-Router的基础功能：</p>
+<ul>
+<li>像真正的Vue-Router一样编写路由（仅基础实现）</li>
+<li>实现Vue-Router的hash模式url</li>
+<li>声明两个全局组件：router-link,router-view</li>
+<li>响应式切换路由视图</li>
+</ul>
+<h4 id="1-提前扫盲，每次我们要引入Vue-Router都要使用以下代码来安装"><a href="#1-提前扫盲，每次我们要引入Vue-Router都要使用以下代码来安装" class="headerlink" title="1. 提前扫盲，每次我们要引入Vue-Router都要使用以下代码来安装"></a>1. 提前扫盲，每次我们要引入Vue-Router都要使用以下代码来安装</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> Router <span class="keyword">from</span> <span class="string">'vue-router'</span></span><br><span class="line"></span><br><span class="line">Vue.use(Router)</span><br></pre></td></tr></table></figure>
+
+<p>官方文档的解释：</p>
+<blockquote>
+<p>安装 Vue.js 插件。如果插件是一个对象，必须提供 install 方法。如果插件是一个函数，它会被作为 install 方法。install 方法调用时，会将 Vue 作为参数传入。</p>
+</blockquote>
+<p><code>Vue.use()</code>会执行传入对象的install方法，以此安装插件</p>
+<p>所以，想要我们的Vue-Router能够像官方的写法一致，除了提供类似的构造函数，还需要提供install方法。</p>
+<h4 id="2-编写VueRouter类，以及他的构造函数"><a href="#2-编写VueRouter类，以及他的构造函数" class="headerlink" title="2. 编写VueRouter类，以及他的构造函数"></a>2. 编写VueRouter类，以及他的构造函数</h4><p>新建一个my-vue-router.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> Vue; <span class="comment">// 通过插件传递进来的Vue对象</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//创建VueRouter类</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">VueRouter</span></span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//构造函数</span></span><br><span class="line">  <span class="keyword">constructor</span>(options) &#123;</span><br><span class="line">    <span class="keyword">this</span>.$options = options;</span><br><span class="line">    <span class="comment">// 声明map, 把path和component映射</span></span><br><span class="line">    <span class="keyword">this</span>.routeMap = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// current保存当前hash</span></span><br><span class="line">    <span class="comment">// vue使其是响应式的</span></span><br><span class="line">    <span class="keyword">this</span>.app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">      data: &#123;</span><br><span class="line">        current: <span class="string">"/"</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-编写VueRouter的install静态方法"><a href="#3-编写VueRouter的install静态方法" class="headerlink" title="3. 编写VueRouter的install静态方法"></a>3. 编写VueRouter的install静态方法</h4><p>使用<code>Vue.mixin()</code>将router对象绑定到Vue的原型链上</p>
+<p>关于<a href="https://cn.vuejs.org/v2/api/#mixins" target="_blank" rel="noopener">混入</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//提供install方法</span></span><br><span class="line">VueRouter.install = <span class="function"><span class="keyword">function</span>(<span class="params">_Vue</span>) </span>&#123;</span><br><span class="line">  Vue = _Vue;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 混入：挂载$router</span></span><br><span class="line">  Vue.mixin(&#123;</span><br><span class="line">    beforeCreate() &#123;</span><br><span class="line">      <span class="comment">// 希望接下来代码在每个组件创建时都执行</span></span><br><span class="line">      <span class="comment">// this指当前组件实例</span></span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">this</span>.$options.router) &#123;</span><br><span class="line">        Vue.prototype.$router = <span class="keyword">this</span>.$options.router;</span><br><span class="line">        <span class="comment">// 初始化router</span></span><br><span class="line">        <span class="keyword">this</span>.$options.router.init();</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-梳理VueRouter类的结构与逻辑"><a href="#4-梳理VueRouter类的结构与逻辑" class="headerlink" title="4. 梳理VueRouter类的结构与逻辑"></a>4. 梳理VueRouter类的结构与逻辑</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">VueRouter</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">constructor</span>(options) &#123;</span><br><span class="line">    <span class="comment">//...构造函数</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  init()&#123;</span><br><span class="line">    <span class="comment">//执行VueRouter的install方法后在这里初始化router</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 1.事件监听</span></span><br><span class="line">    <span class="keyword">this</span>.bindEvents();</span><br><span class="line">    <span class="comment">// 2.创建路由映射</span></span><br><span class="line">    <span class="keyword">this</span>.createRouteMap();</span><br><span class="line">    <span class="comment">// 3.声明两个全局组件</span></span><br><span class="line">    <span class="keyword">this</span>.initComponent();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-bindEvents方法"><a href="#5-bindEvents方法" class="headerlink" title="5. bindEvents方法"></a>5. bindEvents方法</h4><p>监听hashchange事件，每当跟在＃符号后面的URL部分（包括＃符号）改变，就会触发该事件。<br>关于<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/hashchange_event" target="_blank" rel="noopener">hashchange</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">bindEvents()&#123;</span><br><span class="line">  <span class="built_in">window</span>.addEventListener(<span class="string">"hashchange"</span>, <span class="keyword">this</span>.onHashChange.bind(<span class="keyword">this</span>));</span><br><span class="line">    <span class="built_in">window</span>.addEventListener(<span class="string">"load"</span>, <span class="keyword">this</span>.onHashChange.bind(<span class="keyword">this</span>));</span><br><span class="line">&#125;</span><br><span class="line">onHashChange()&#123;</span><br><span class="line">  <span class="comment">//处理一下url，并改变current的值</span></span><br><span class="line">  <span class="keyword">this</span>.app.current = <span class="built_in">window</span>.location.hash.slice(<span class="number">1</span>) || <span class="string">"/"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="6-createRouteMap方法"><a href="#6-createRouteMap方法" class="headerlink" title="6. createRouteMap方法"></a>6. createRouteMap方法</h4><p>解析option中的router</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 解析routes选项</span></span><br><span class="line">  createRouteMap() &#123;</span><br><span class="line">    <span class="keyword">this</span>.$options.routes.forEach(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">this</span>.routeMap[item.path] = item.component;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="7-initComponent方法（声明组件）"><a href="#7-initComponent方法（声明组件）" class="headerlink" title="7. initComponent方法（声明组件）"></a>7. initComponent方法（声明组件）</h4><p>使用<code>Vue.component()</code>方法声明全局组件<br>使用<code>render()</code>函数渲染router-link组件的dom</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 声明两个组件</span></span><br><span class="line">  initComponent() &#123;</span><br><span class="line">    <span class="comment">// Vue.component()</span></span><br><span class="line">    Vue.component(<span class="string">"router-link"</span>, &#123;</span><br><span class="line">      props: &#123; <span class="attr">to</span>: &#123; <span class="attr">type</span>: <span class="built_in">String</span>, <span class="attr">required</span>: <span class="literal">true</span> &#125; &#125;,</span><br><span class="line">      <span class="comment">//   template: '&lt;a to="/"&gt;xxx&lt;/a&gt;'</span></span><br><span class="line">      render(h) &#123;</span><br><span class="line">        <span class="comment">// 1. render生成虚拟dom</span></span><br><span class="line">        <span class="comment">// 2. 描述渲染dom结构</span></span><br><span class="line">        <span class="comment">// 3. h(tag, data, children)</span></span><br><span class="line">        <span class="comment">// return &lt;a href=&#123;this.to&#125;&gt;&#123;this.$slots.default&#125;&lt;/a&gt;</span></span><br><span class="line">        <span class="keyword">const</span> vdom = h(<span class="string">'a'</span>, &#123;<span class="attr">attrs</span>: &#123;<span class="attr">href</span>: <span class="string">'#'</span>+<span class="keyword">this</span>.to&#125;&#125;, [<span class="keyword">this</span>.$slots.default]);</span><br><span class="line">        <span class="built_in">console</span>.log(vdom);</span><br><span class="line">        <span class="keyword">return</span> vdom;</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    Vue.component(<span class="string">'router-view'</span>, &#123;</span><br><span class="line">        render: <span class="function"><span class="params">h</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="comment">// this指向VueRouter实例</span></span><br><span class="line">            <span class="keyword">const</span> component = <span class="keyword">this</span>.routeMap[<span class="keyword">this</span>.app.current];</span><br><span class="line">            <span class="keyword">return</span> h(component);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="8-像真正的Vue-Router一样使用"><a href="#8-像真正的Vue-Router一样使用" class="headerlink" title="8. 像真正的Vue-Router一样使用"></a>8. 像真正的Vue-Router一样使用</h4><p>在router.js中</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="comment">// import Router from 'vue-router'</span></span><br><span class="line"><span class="comment">// 注释掉真正的Vue-Router，使用我们的mini版本QvQ</span></span><br><span class="line"><span class="keyword">import</span> Router <span class="keyword">from</span> <span class="string">'./my-vue-router'</span></span><br><span class="line"><span class="keyword">import</span> Home <span class="keyword">from</span> <span class="string">'./views/Home.vue'</span></span><br><span class="line"><span class="keyword">import</span> About <span class="keyword">from</span> <span class="string">'./views/About.vue'</span></span><br><span class="line"></span><br><span class="line">Vue.use(Router)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Router(&#123;</span><br><span class="line">  routes: [</span><br><span class="line">    &#123;</span><br><span class="line">      path: <span class="string">'/'</span>,</span><br><span class="line">      name: <span class="string">'home'</span>,</span><br><span class="line">      component: Home</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      path: <span class="string">'/about'</span>,</span><br><span class="line">      name: <span class="string">'about'</span>,</span><br><span class="line">      component: About</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// &#123;</span></span><br><span class="line">    <span class="comment">//   path: '/about',</span></span><br><span class="line">    <span class="comment">//   name: 'about',</span></span><br><span class="line">    <span class="comment">//   // route level code-splitting</span></span><br><span class="line">    <span class="comment">//   // this generates a separate chunk (about.[hash].js) for this route</span></span><br><span class="line">    <span class="comment">//   // which is lazy-loaded when the route is visited.</span></span><br><span class="line">    <span class="comment">//   component: () =&gt; import(/* webpackChunkName: "about" */ './views/About.vue')</span></span><br><span class="line">    <span class="comment">// &#125;,</span></span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>App.vue中</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div id=<span class="string">"app"</span>&gt;</span><br><span class="line">    &lt;div id=<span class="string">"nav"</span>&gt;</span><br><span class="line">      &lt;router-link to=<span class="string">"/"</span>&gt;Home&lt;<span class="regexp">/router-link&gt; |</span></span><br><span class="line"><span class="regexp">      &lt;router-link to="/</span>about<span class="string">"&gt;About&lt;/router-link&gt;</span></span><br><span class="line"><span class="string">    &lt;/div&gt;</span></span><br><span class="line"><span class="string">    &lt;router-view/&gt;</span></span><br><span class="line"><span class="string">  &lt;/div&gt;</span></span><br><span class="line"><span class="string">&lt;/template&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&lt;style&gt;</span></span><br><span class="line"><span class="string">···</span></span><br><span class="line"><span class="string">&lt;/style&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在main.js中引入</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">'./App.vue'</span></span><br><span class="line"><span class="keyword">import</span> router <span class="keyword">from</span> <span class="string">'./router'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  router,</span><br><span class="line">  render: <span class="function"><span class="params">h</span> =&gt;</span> h(App)</span><br><span class="line">&#125;).$mount(<span class="string">'#app'</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="OK-现在你应该可以在项目中看到效果了"><a href="#OK-现在你应该可以在项目中看到效果了" class="headerlink" title="OK! 现在你应该可以在项目中看到效果了"></a>OK! 现在你应该可以在项目中看到效果了</h3><h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>因为这是一个mini版本，非常简陋，仅仅实现了最基础的几个功能。</p>
+<p><a href="https://github.com/zhangpeng2k/my-vue-practice/blob/master/src/my-vue-router.js" target="_blank" rel="noopener">关键代码片段github地址</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Vue/" rel="tag"># Vue</a>
+          
+            <a href="/tags/源码/" rel="tag"># 源码</a>
+          
+            <a href="/tags/Vue-Router/" rel="tag"># Vue-Router</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/26/使用github分支管理博客源码/" rel="next" title="使用GitHub分支管理博客源码">
+                <i class="fa fa-chevron-left"></i> 使用GitHub分支管理博客源码
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/08/30/转载-风险是可控的-只是需要高度自律/" rel="prev" title="(转载)'风险是可控的,只是需要高度自律'">
+                (转载)'风险是可控的,只是需要高度自律' <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">zhangpeng2k</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#如何实现一个最简单的Vue-Router"><span class="nav-number">1.</span> <span class="nav-text">如何实现一个最简单的Vue-Router</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Vue-Router的实现原理"><span class="nav-number">1.1.</span> <span class="nav-text">Vue-Router的实现原理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-提前扫盲，每次我们要引入Vue-Router都要使用以下代码来安装"><span class="nav-number">1.1.1.</span> <span class="nav-text">1. 提前扫盲，每次我们要引入Vue-Router都要使用以下代码来安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-编写VueRouter类，以及他的构造函数"><span class="nav-number">1.1.2.</span> <span class="nav-text">2. 编写VueRouter类，以及他的构造函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-编写VueRouter的install静态方法"><span class="nav-number">1.1.3.</span> <span class="nav-text">3. 编写VueRouter的install静态方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-梳理VueRouter类的结构与逻辑"><span class="nav-number">1.1.4.</span> <span class="nav-text">4. 梳理VueRouter类的结构与逻辑</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-bindEvents方法"><span class="nav-number">1.1.5.</span> <span class="nav-text">5. bindEvents方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-createRouteMap方法"><span class="nav-number">1.1.6.</span> <span class="nav-text">6. createRouteMap方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-initComponent方法（声明组件）"><span class="nav-number">1.1.7.</span> <span class="nav-text">7. initComponent方法（声明组件）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-像真正的Vue-Router一样使用"><span class="nav-number">1.1.8.</span> <span class="nav-text">8. 像真正的Vue-Router一样使用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OK-现在你应该可以在项目中看到效果了"><span class="nav-number">1.2.</span> <span class="nav-text">OK! 现在你应该可以在项目中看到效果了</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">2.</span> <span class="nav-text">小结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhangpeng2k</span>
+
+  
+</div>
+
+
+  <div class="powered-by">
+    <i class="fa fa-user-md"></i>
+    <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
