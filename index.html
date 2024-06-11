@@ -1,1784 +1,263 @@
-<!DOCTYPE html>
-
-
-
-  
-
-
-<html class="theme-next mist use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="theme-color" content="#222">
-
-
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
-
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="Hexo, NexT">
-
-
-
-
-
-
-
-
-
-
-<meta property="og:type" content="website">
-<meta property="og:title" content="zhangpeng2k Blog">
-<meta property="og:url" content="http://zhangpeng2k.github.io/index.html">
-<meta property="og:site_name" content="zhangpeng2k Blog">
-<meta property="og:locale" content="zh-Hans">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="zhangpeng2k Blog">
-
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Mist',
-    version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-
-  <link rel="canonical" href="http://zhangpeng2k.github.io/">
-
-
-
-
-
-  <title>zhangpeng2k Blog</title>
-  
-
-
-
-
-
-
-
-
+<html>
+
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+  <!-- <link rel="stylesheet" type="text/css" href="css/fontawesome-all.min.css"/> -->
+  <link rel="stylesheet" href="css/fontawesome-all.min.css">
+  <link rel="stylesheet" href="css/base.css">
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
-  
-  
-    
-  
-
-  <div class="container sidebar-position-left 
-  page-home">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">zhangpeng2k Blog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-      
-        <p class="site-subtitle"></p>
-      
-  </div>
-
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
-</div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
-            
-            首页
-          </a>
+<body>
+  <!-- 
+        整个文档的Div容器
+    -->
+  <div id="resume-framework">
+    <!-- 
+          base-info指基础信息，包括头像，姓名，邮箱，电话，链接等 
+      -->
+    <div id="base-info-wrapper">
+      <!-- 可以通过调整base.css中的#base-info的width来使顶部居中，例如60% -->
+      <div id="base-info">
+        <!-- 头像 -->
+        <img id="avatar" alt="avatar" src="imgs/avatar.jpg" />
+        <!-- 其他基础信息 -->
+        <div id="base-info-span">
+          <b id="name">张鹏</b>
+          <a href="./张鹏-前端开发工程师-5年-简洁.pdf">（点此查看/下载 简历简洁PDF版本）</a>
+          <hr>
+          <span>
+            <!-- 可以从font-awesome网站(https://fontawesome.com/icons)中搜索所需图标，
+              直接替换<i>标签class内内容即可 -->
+            <h5>
+              <i class="fas fa-envelope"></i> zhangpeng2k@qq.com |
+              <i class="fas fa-phone"></i> 176-0059-8783 | 政治面貌：群众
+            </h5>
+            <h5>
+              <i class="fab fa-github"></i> github.com/zhangpeng2k | 求职意向: Web前端工程师
+            </h5>
+          </span>
+        </div> <!-- end base-info-span -->
+      </div> <!-- end base-info -->
+    </div> <!-- base-info-wrapper -->
+    <div style="clear: both;"></div>
+    <!-- 
+          个人简介部分 
+      -->
+    <div id="summary">
+      <div class="banner-div">
+        <span class="banner-span">
+          <i class="white-icon fas fa-user"></i>&nbsp;个人简介
+        </span>
+      </div> <!-- end banner-div -->
+      <!-- 个人简介可替换部分 -->
+      <p><b>5年Web 前端开发经验</b>（2018年3月至今），熟悉 <b>Vue、React框架原理</b>，作为主力工程师参与设计与开发过多个项目，负责系统核心模块的开发，自动化测试与部署。<b>熟悉 HTTP 协议、基础算法、数据结构</b> 
+        <p>熟悉<b>Vue、React框架原理</b> 熟悉前端性能优化</p>
+        <p>有优秀的学习能力和团队沟通能力，经常与团队进行技术分享，能与团队共同成长。</p>
+        <p>有一定梯队建设能力，曾领导5人前端小组，注重代码与业务双重提升</p>
+        <p></p>
+      </p>
+    </div> <!-- end summary -->
+    <!-- 
+          技能列表部分
+      -->
+    <div id="skills">
+      <div class="banner-div">
+        <span class="banner-span">
+          <i class="white-icon fas fa-pencil-alt"></i>&nbsp;技能列表
+        </span>
+      </div> <!-- end skills -->
+      <!-- 技能列表可替换部分 &nbsp;用来控制格式-->
+      <ul>
+        <li>
+          <b>Web 开发：</b>HTML、JavaScript、CSS、TypeScript、NodeJs
         </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
-            
-            关于
-          </a>
+        <li>
+          <b>前端技术:</b> SPA、SEO、PWA、ES6、Canvas、SVG、Flex、JSON
         </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
-            
-            标签
-          </a>
+        <li>
+          <b>前端框架:</b> Vue、React、jQuery、Bootstrap、Element-UI
         </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
-            
-            归档
-          </a>
+        <li>
+          <b>后端技术:</b> Koa2、Express、Mongodb、Mysql、Nginx
         </li>
-      
-        
-        <li class="menu-item menu-item-link">
-          <a href="/link" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
-            
-            友链
-          </a>
+        <li>
+          <b>版本管理:</b> Git、Svn
         </li>
-      
-
-      
-    </ul>
-  
-
-  
-</nav>
-
-
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-  <section id="posts" class="posts-expand">
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhangpeng2k.github.io/2020/08/20/「努力工作，认真生活」/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhangpeng2k">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhangpeng2k Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/08/20/「努力工作，认真生活」/" itemprop="url">「努力工作，认真生活」</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-20T11:00:31+00:00">
-                2020-08-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>最近在履行「努力工作，认真生活」的生活方式，已经度过了两个周末了。<br>我对于「努力工作」的定义：如果说工作做到最好是十成，那我做到七成就够打到努力工作的标准了。<br>而「认真生活」我是如何做的呢？<br>第一周的周末我去爬了香山，坐了缆车，拍了很多照片，以及40GB的视频！<br>傍晚回到家开心打游戏，和朋友聊香山有多高，缆车如何好玩。</p>
-<p>第二周的周末，我约了不常联系的好友一起去欢乐谷，还办了年票。<br>去玩了鬼屋，旁观了一下激流勇进，坐了一趟过山车。头一次做过山车，真心感觉很危险…<br>我尝试在周末的休息日里，尽量出去游玩，不窝在家打游戏。感觉有一定的效果，感觉自己更开朗了一些，和朋友的联系也更频繁了（毕竟一起办了欢乐谷年卡）</p>
-<p>更新于 2020-08-20 11:00:31</p>
-<p>这一周倒是没有安排，周六在家玩了玩VR游戏。下午去逛了逛商场，试了一下2020款的MacBook Pro。去优衣库看了下新款鬼灭之刃UT。（然而都没买</p>
-<p>周日去了又在家打了一下午LOL，又有点颓废的感觉，晚上去喝亲戚的喜酒，和做咖啡师远方表哥聊了聊一些生活品味相关的话题。感觉这次来应酬也算不虚此行。</p>
-<p>更新于 2020年08月24日10:10:21</p>
-<p>8月的最后一个周末</p>
-<p>周六花了整整一天在家认真的大扫除，扔了好多旧东西，处理了很多卫生问题。心情值和健康值up</p>
-<p>周日去和小伙伴玩了一下三国杀，挺有意思的。就是带着的switch没有人玩，我背着大包小包出来一趟很辛苦的好不…</p>
-<p>更新于 2020年09月01日11:24:50</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhangpeng2k.github.io/2020/08/06/祝自己20岁生日快乐/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhangpeng2k">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhangpeng2k Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/08/06/祝自己20岁生日快乐/" itemprop="url">祝自己20岁生日快乐</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-06T13:51:12+00:00">
-                2020-08-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>去闲鱼给自己买了台二手的 2019款的 MacBook Pro 13 ，低配款 定制了16GB内存和256GB硬盘</p>
-<p>虽然蝶式键盘的体验挺一般的，不过好歹是我的第一台Mac，好像也算第一台自费的电脑</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhangpeng2k.github.io/2020/05/13/感谢曾经帮助过我的人/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhangpeng2k">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhangpeng2k Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/05/13/感谢曾经帮助过我的人/" itemprop="url">感谢曾经帮助过我的人</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-13T16:38:43+00:00">
-                2020-05-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>感谢那些曾经帮助过我的人，他们对我的帮助远不是一句谢谢就能表达的。</p>
-<p>也感谢开源软件的作者们无私奉献的精神，我也梦想能够成为一个开源软件作者，帮助千上万素未谋面的人。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhangpeng2k.github.io/2020/03/25/人生的意义与甜甜圈/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhangpeng2k">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhangpeng2k Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/03/25/人生的意义与甜甜圈/" itemprop="url">人生的意义与甜甜圈</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-25T10:52:44+00:00">
-                2020-03-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="人生是没有意义的"><a href="#人生是没有意义的" class="headerlink" title="人生是没有意义的"></a>人生是没有意义的</h2><p>人生是艰难的</p>
-<p>最近看了一篇知乎文章<a href="https://zhuanlan.zhihu.com/p/99181212" target="_blank" rel="noopener">面完腾讯阿里后对人生的思考 - windliang的文章 - 知乎</a></p>
-<p>作者是一位CS专业的硕士，研究生所在的实验室的方向是做计算机视觉。兴趣是前端开发，但在算法岗位与前端岗位间摇摆。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/03/25/人生的意义与甜甜圈/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhangpeng2k.github.io/2020/03/12/从用开源项目建博客，到为开源项目贡献代码/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhangpeng2k">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhangpeng2k Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/03/12/从用开源项目建博客，到为开源项目贡献代码/" itemprop="url">从用开源项目建博客，到为开源项目贡献代码</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-12T10:29:14+00:00">
-                2020-03-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>最近看到了dk大佬的<a href="https://blog.dkvirus.top/life/read.html" target="_blank" rel="noopener">个人读书笔记</a> 使用<a href="https://github.com/lisniuse/teadocs" target="_blank" rel="noopener">Teadocs</a>构建，感觉站点样式很简洁很酷，一眼就爱上了。</p>
-<p><img src="http://images.zhangpeng2k.com/img/20200312110928.png" alt></p>
-<p>所以自己也使用<a href="https://github.com/lisniuse/teadocs" target="_blank" rel="noopener">Teadocs</a>搭建了搭建一个<a href="https://zhangpeng2k.github.io/Reading-notes/">读书站点</a>，<strong><em>欢迎访问！</em></strong>这里记录一下建站历程。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/03/12/从用开源项目建博客，到为开源项目贡献代码/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhangpeng2k.github.io/2020/03/05/解决npm权限问题/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhangpeng2k">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhangpeng2k Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/03/05/解决npm权限问题/" itemprop="url">解决npm权限问题</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-05T15:36:23+00:00">
-                2020-03-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>我在github上新建了个<a href="https://github.com/zhangpeng2k/my-react-practice" target="_blank" rel="noopener">react练手项目</a><br>本身在本地跑过<code>npm install</code>命令，今天想起来加个<code>.npmrc</code>文件，只是为了让npm跑的快一点，也不想用cnpm而已。<br>删除了<code>node_modules</code>目录，跑<code>npm install</code>的时候报错了，报错信息如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br><span class="line"></span><br><span class="line">Unhandled rejection Error: EACCES: permission denied, open &apos;/Users/xxx/.npm/_cacache/index-v5/38/59/44f5977494beb324f14d5d6076019a3d6719a5d78486a878288fd2328840&apos;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/03/05/解决npm权限问题/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhangpeng2k.github.io/2020/03/04/Vue关闭线上环境console/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhangpeng2k">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhangpeng2k Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/03/04/Vue关闭线上环境console/" itemprop="url">Vue关闭线上环境console</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-04T14:08:59+00:00">
-                2020-03-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="关于关闭线上环境console"><a href="#关于关闭线上环境console" class="headerlink" title="关于关闭线上环境console"></a>关于关闭线上环境console</h2><p>在之前，我通过这样一行代码实现…</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log = <span class="function"><span class="params">()</span> =&gt;</span> &#123;&#125;</span><br></pre></td></tr></table></figure>
-
-<p>虽然够用，但是不够优雅，难以维护。</p>
-<p><strong>而现在在前端工程化的环境下，这样的代码显然不易于维护，最好是通过配置的方式来解决</strong></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/03/04/Vue关闭线上环境console/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhangpeng2k.github.io/2019/11/06/腾讯Techo开发者大会：真香？/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhangpeng2k">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhangpeng2k Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/11/06/腾讯Techo开发者大会：真香？/" itemprop="url">腾讯Techo开发者大会：真香？</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-06T23:17:35+00:00">
-                2019-11-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="关键词：大佬演讲，新技术展望，动手实验室"><a href="#关键词：大佬演讲，新技术展望，动手实验室" class="headerlink" title="关键词：大佬演讲，新技术展望，动手实验室"></a>关键词：大佬演讲，新技术展望，动手实验室</h2><p>年轻人的第一次开发者大会<br><img src="http://images.zhangpeng2k.com//img/IMG_0673.JPG" alt="Techo"></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/11/06/腾讯Techo开发者大会：真香？/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhangpeng2k.github.io/2019/10/13/React学习笔记-2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhangpeng2k">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhangpeng2k Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/10/13/React学习笔记-2/" itemprop="url">React学习笔记-2</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-13T10:59:59+00:00">
-                2019-10-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="关于this的指向问题"><a href="#关于this的指向问题" class="headerlink" title="关于this的指向问题"></a>关于<code>this</code>的指向问题</h2><ul>
-<li>函数内的<code>this</code>取决于函数在什么地方被调用</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">TodoList</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">        <span class="keyword">super</span>(props)</span><br><span class="line">        <span class="keyword">this</span>.state = &#123;</span><br><span class="line">            list: [],</span><br><span class="line">            text:<span class="string">''</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 官方建议 在这里 bind(this)  onChange事件里就不用显式声明e</span></span><br><span class="line">        <span class="keyword">this</span>.handleChange = <span class="keyword">this</span>.handleChange.bind(<span class="keyword">this</span>)</span><br><span class="line">        <span class="comment">// 即使不使用 e 但只要是在onClick事件中调用的函数，都要绑定this</span></span><br><span class="line">    &#125;</span><br><span class="line">    handleChange(e) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(e.target.value);</span><br><span class="line">        <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">            text: e.target.value</span><br><span class="line">        &#125;, () =&gt; &#123;</span><br><span class="line">            <span class="comment">// 回调函数，在这里拿到正确的修改后的值</span></span><br><span class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>.state.text);</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zhangpeng2k.github.io/2019/10/09/React学习笔记-1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhangpeng2k">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhangpeng2k Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/10/09/React学习笔记-1/" itemprop="url">React学习笔记-1</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-09T17:55:04+00:00">
-                2019-10-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="组件基础"><a href="#组件基础" class="headerlink" title="组件基础"></a>组件基础</h2><ul>
-<li>无论是类组件还是函数组件，组件名称首字母必须大写！
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/10/09/React学习笔记-1/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </li></ul></div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
-
-
-          </div>
-          
-
-
-          
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    
-    <div class="sidebar-inner">
-
-      
-
-      
-
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <p class="site-author-name" itemprop="name">zhangpeng2k</p>
-              <p class="site-description motion-element" itemprop="description"></p>
-          </div>
-
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives/">
-              
-                  <span class="site-state-item-count">18</span>
-                  <span class="site-state-item-name">日志</span>
-                </a>
-              </div>
-            
-
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">30</span>
-                  <span class="site-state-item-name">标签</span>
-                </a>
-              </div>
-            
-
-          </nav>
-
-          
-
-          
-
-          
-          
-
-          
-          
-
-          
-
-        </div>
-      </section>
-
-      
-
-      
-
-    </div>
-  </aside>
-
-
-        
+        <li>
+          <b>自动化工具:</b> Webpack、Sass、Less、DevTools、TravisCi、Docker
+        </li>
+        <li>
+          <b>网络相关:</b> Websocket、HTTPs/2、Ajax、CDN、DNS、Cache
+        </li>
+        <li>
+          <b>开发环境:</b> Mac、VSCode、Chrome、Sketch、Postman
+        </li>
+      </ul>
+    </div> <!-- end skills -->
+    <!-- 
+          工作经历部分
+      -->
+    <div id="jobs">
+      <div class="banner-div">
+        <span class="banner-span">
+          <i class="white-icon fas fa-briefcase"></i>&nbsp;工作经历
+        </span>
       </div>
-    </main>
 
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">zhangpeng2k</span>
+      <!-- 第一份工作的介绍 -->
+      <b>北京七零科技有限公司（外派字节） </b>
+      <p>2021年4月 - 2022年7月 | 高级Web前端研发工程师</p>
+      <ul>
+        <li><b>担任PIPE团队前端开发组小组长</b></li>
+        <li>使用 Vue、React 等框架，开发复杂的用户交互组件，提升用户体验。</li>
+        <li>优化前端性能，减少页面加载时间，提高应用响应速度，通过代码优化、资源压缩等技术手段实现。</li>
+        <li>主导多个核心功能的开发工作，如低代码拖拽式创建工具、自动化数据生产流水线工具等，将业务需求转化为高效、稳定的代
+          码实现。</li>
+        <li>实施单元测试和集成测试，确保代码的稳定性和可维护性，保证产品质量。</li>
+        <li>负责平台的日常维护和监控工作，确保系统的稳定运行，并通过改进代码结构和加载策略，实现页面加载速度的大幅提升。
+        </li>
+        <li>积极与其他技术团队和业务部门保持紧密沟通，共同推进项目进展。主动分享技术经验，协助解决团队成员在开发中遇到的问
+          题，提升团队的整体技术能力和协作效率。</li>
+        <li>负责团队技术文档的编写以及维护，定期 review 团队的代码，与团队共同学习以及成长。</li>
+        <li><b>关键词：</b>
+          <ol>
+            <li><b>功能开发成果显著：</b>主导完成了低代码平台与自动化数据生产流水线等平台核心功能开发，全年代码提交行数达到同事平均水平的2
+              倍，为内部业务提供了高效的数据处理工具。
+            </li>
+            <li><b>项目重构与优化：</b>成功将项目重构为 Typescript ，提升了代码质量与维护效率。同时，优化自动化流水线，将上线打包时间从
+              3分钟缩短至30秒。
+            </li>
+            <li><b>团队建设与贡献：</b>积极编写技术文档参与技术分享与培训，提升了团队技术水平与协作能力，获得公司与同事的高度认可。
+            </li>
+          </ol>
+        </li>
+      </ul>
+      <!-- 第一个项目的介绍，多个项目可以复制project-span区块-->
+      <span class="project-span">
+        <b>字节跳动内部低代码PIPE工具平台</b>
+        <ul>
+          <li>简介：
+            字节跳动内部革命性低代码工具与数据构造平台，致力于提升开发效率与数据质量。</li>
+          <li>负责通用组件开发，核心功能代码编写，解决技术难点</li>
+          <li><b>平台核心功能：</b>
+            <ol>
+              <li>低代码开发神器：采用拖拽式创建方式，轻松构建应用界面，极大减少编码量。</li>
+              <li>自动化数据生产流水线：一键生成数据，确保数据准确性与高效性。</li>
+              <li>字节内部能力整合：无缝对接字节跳动内部资源，打造高度自定义的自动化数据构造流水线。</li>
+            </ol>
+          </li>
+          <li>带领 5人 团队开发</li>
+          <li>技术栈：基于Vue-Admin-Element开发的Garfishjs微前端平台，使用了Vue+Vuex+VueRouter、Typescript、Axios、SCSS、Element-UI、ANTD-Vue、Echarts等
+          </li>
+          <li><b>期间主要成果：</b>
+            <ol>
+              <li> 技术支持与功能领航：主导了多个核心功能的开发与维护，为业务侧提供了坚实的技术支撑，助力业务飞速发展。
+              </li>
+              <li>代码重构与效率提升：成功将项目重构为 Typescript ，不仅降低了代码阅读与维护成本，还提升了团队整体的开发效率。
+              </li>
+              <li> 自动化流水线革新：完善项目打包发布的自动化流水线，并添加预编译功能，将上线打包时间从平均3分钟缩短至30秒，极大加
+                快了项目上线速度。
+              </li>
+              <li>代码质量把控与 bug 降低：引领前端团队关注代码质量，通过持续的优化与审查，成功降低了 bug 数量，提高了软件的稳定
+                性。
+              </li>
+              <li>项目易用性飞跃：经过不断的优化与改进，成功提升了页面加载速度超过300%，为用户带来了更加流畅的使用体验。
+              </li>
+            </ol>
+          </li>
+        </ul>
+      </span>
+      <!-- 第一份工作结束 -->
+      <p></p>
+      <!-- 第二份工作开始 -->
+      <b>北京文创动力信息科技有限公司</b>
+      <p>2019年2月-2021年4月 | Web 前端工程师</p>
+      <ul>
+        <li><b>担任公司前端开发组组长</b></li>
+        <li>前端项目开发流的搭建、构建公司内部代码仓库、配合团队制定代码规范</li>
+        <li>负责公司技术文档的编写以及维护，定期 review 团队的代码，与团队共同学习以及成长。</li>
+      </ul>
+      <!-- 第一个项目的介绍，多个项目可以复制project-span区块-->
+      <span class="project-span">
+        <b>WeSpace版权确权平台 wespace.cn</b>
+        <ul>
+          <li>简介：WeSpace版权确权平台，与北京版权局合作，提供版权注册、版权确权等业务的一站式服务平台</li>
+          <li>负责通用组件开发，核心功能代码编写，解决技术难点</li>
+          <li><b>技术难点：</b>大文件业务环境下的文件上传组件开发</li>
+          <li>带领 3人 团队开发</li>
+          <li>技术栈：Vue+Vuex+VueRouter、Axios、Element-UI、Echarts</li>
+        </ul>
+      </span>
+      <span class="project-span">
+        <b>WeSpace后台管理系统</b>
+        <ul>
+          <li>使用 Vue-Admin-Template 作为基础模板进行二次开发，定制项目通用脚手架，并编写开发文档</li>
+          <li><b>技术难点：</b>基于角色/用户的路由权限管理模块</li>
+          <li>独立完成公司后台管理系统的难点分析与架构设计工作，承担核心功能代码编写，开发与维护系统核心模块。使用 Eslint 等工具保证代码的可靠，安全。</li>
+          <li>技术栈：Vue、Vuex、VueRouter、VueCli、Axios、Element-UI、Echarts</li>
+        </ul>
+      </span>
+      <!-- end project-span -->
+      <!-- 第二份工作结束 -->
+      <p></p>
+      <!-- 第三份工作的介绍 -->
+      <b>北京狸米科技有限公司（旗下产品 狸米数学, 狸米课堂）</b>
+      <p>2018年3月-2018年10月 | Web 前端工程师</p>
+      <ul>
 
-  
-</div>
+        <li>作为前端工程师，配合UI、后端、测试工程师，开发项目</li>
+        <li>独自完成 Webpack 自动化构建配置，压缩合并 js/CSS，减少浏览器的缓存，自动添加版本号，减少代码，缩短页面加载时间，增强用户体验。</li>
+        <li>独立开发项目，配合测试工程师定位并解决Bug，并在公司内部Wiki中为项目编写文档</li>
 
-
-  <div class="powered-by">
-    <i class="fa fa-user-md"></i>
-    <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
-</div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
-
-
-
-
-        
-
-
-
-
-
-
-
-        
+      </ul>
+      <!-- 第一个项目的介绍，多个项目可以复制project-span区块-->
+      <span class="project-span">
+        <b>狸米官网</b>
+        <ul>
+          <li>根据原型设计图开发前端代码并附加 js 效果，负责网站的前端页面展现、优化、兼容；</li>
+          <li>解决常见的浏览器兼容问题，CSS Hack 写条件注释，属性 Hack，选择符 Hack，CSS3 属性加前缀；</li>
+          <li>独立开发项目，配合测试工程师定位并解决Bug</li>
+          <li>技术栈：Vue、jQuery、Scss、Webpack</li>
+        </ul>
+      </span>
+      <span class="project-span">
+        <b>狸米H5活动/活动运营管理平台</b>
+        <ul>
+          <li>使用 <b>jQuery，Vue等框架</b> 快速开发迭代多个H5活动。使用 TalkingData 完成页面埋点，通过函数防抖节流等技术保证埋点数据真实及可靠性。</li>
+          <li><b>赋能：</b>发现H5活动的相似性与共性，主动联系后端工程师与产品经理，开发了一套活动运营管理后台，反响很好。产品经理通过该平台可以发布H5活动！</li>
+          <li>独立开发项目，使用bootstrap+vue 配合后端快速开发了管理后台，并在公司内部Wiki中编写项目文档</li>
+        </ul>
+      </span>
+      <!-- end project-span -->
+      <p></p>
+      <!-- 第三份工作结束 -->
+    </div> <!-- end jobs -->
+    <!-- 
+          教育经历部分
+      -->
+    <div id="education">
+      <div class="banner-div">
+        <span class="banner-span"><i class="white-icon fas fa-graduation-cap"></i>&nbsp;教育经历</span>
       </div>
-    </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
+      <b>中国传媒大学（专科） | 工商企业管理 | 2019年- 2021年</b>
+      <p></p>
+      <b>英国德蒙福特大学（本科） | 计算机应用技术 | 2022年9月- 2024年1月</b>
+      <p></p>
+    </div> <!-- end education -->
+    <!-- 
+          志愿者工作部分
+      -->
+    <div id="volunteer">
+      <div class="banner-div">
+        <span class="banner-span"><i class="white-icon fas fa-ribbon"></i>&nbsp;志愿工作</span>
       </div>
-    
-
-    
-
-  </div>
-
-  
-
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
-</script>
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
-
-
-
-  
-  
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-
-  
-
-  
-
+      <ul>
+        <li>腾讯云2020公益黑客马拉松&新冠病毒相关开源 获得优秀奖</li>
+        <li>为 Webpack.js.org 翻译过部分文档</li>
+        <li>为知名开源项目 RSSHub 贡献代码</li>
+        <ul>
+    </div> <!-- end education -->
+  </div> <!-- end resume-framework -->
 </body>
+
 </html>
